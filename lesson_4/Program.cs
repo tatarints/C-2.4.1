@@ -4,7 +4,7 @@ namespace lesson_4
 {
     class lesson_4
     {
-        public void Test()
+        static void Main(string []args)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();//создаем и запускаем таймер
 
@@ -24,6 +24,7 @@ namespace lesson_4
                 }
             }
 
+
             //останавливаем счётчик 
             stopwatch.Stop(); //смотрим сколько миллисекунд было затрачено на выполнение 
             Console.WriteLine($"Массив {stopwatch.ElapsedMilliseconds}");
@@ -35,7 +36,7 @@ namespace lesson_4
                 hs.Add(i.ToString());
             }
 
-            if (hs.Contains("d"))
+            if (hs.Contains("tat"))
                 Console.WriteLine("Строка есть");
             else
                 Console.WriteLine("Строка отсутствует");
