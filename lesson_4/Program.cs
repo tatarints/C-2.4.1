@@ -4,10 +4,8 @@ namespace lesson_4
 {
     class lesson_4
     {
-        static void Main(string []args)
+        static void ArrayTest()
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();//создаем и запускаем таймер
-
             Random r = new Random();
             string[] strs = new string[10_000];
             for (int i = 0; i < strs.Length; i++)
@@ -16,30 +14,37 @@ namespace lesson_4
             }
 
             string line = "d";
-            foreach (string str in strs)
+            if (strs.Contains(line))
             {
-                if (str == "d")
-                {
-                    Console.WriteLine(string.Format("Слово '{0}' содержится в массиве", line));
-                }
+                Console.WriteLine(string.Format("Слово '{0}' содержится в массиве", line));
             }
-
-
-            //останавливаем счётчик 
-            stopwatch.Stop(); //смотрим сколько миллисекунд было затрачено на выполнение 
-            Console.WriteLine($"Массив {stopwatch.ElapsedMilliseconds}");
-            stopwatch.Restart(); //перезапускаем счётчик
-
+        }
+        static void HeshSetTest()
+        {
             HashSet<string> hs = new HashSet<string>();
             for (int i = 0; i < 10_000; i++)
             {
                 hs.Add(i.ToString());
             }
 
-            if (hs.Contains("tat"))
+            if (hs.Contains("d"))
                 Console.WriteLine("Строка есть");
             else
                 Console.WriteLine("Строка отсутствует");
+        }
+        static void Main(string[] args)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();//создаем и запускаем таймер
+
+            ArrayTest();
+
+            //останавливаем счётчик 
+            stopwatch.Stop(); //смотрим сколько миллисекунд было затрачено на выполнение 
+            Console.WriteLine($"Массив {stopwatch.ElapsedMilliseconds}");
+
+            stopwatch.Restart(); //перезапускаем счётчик
+
+            HeshSetTest();
 
             stopwatch.Stop(); //смотрим сколько миллисекунд было затрачено на выполнение 
             Console.WriteLine($"HeshSet {stopwatch.ElapsedMilliseconds}");
