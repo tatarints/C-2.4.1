@@ -4,7 +4,7 @@ namespace lesson_4
 {
     class lesson_4
     {
-        static void ArrayTest()
+        public void ArrayTest()
         {
             Random r = new Random();
             string[] strs = new string[10_000];
@@ -19,7 +19,7 @@ namespace lesson_4
                 Console.WriteLine(string.Format("Слово '{0}' содержится в массиве", line));
             }
         }
-        static void HeshSetTest()
+        public void HeshSetTest()
         {
             HashSet<string> hs = new HashSet<string>();
             for (int i = 0; i < 10_000; i++)
@@ -34,9 +34,11 @@ namespace lesson_4
         }
         static void Main(string[] args)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();//создаем и запускаем таймер
+            var ls = new lesson_4();
 
-            ArrayTest();
+            Stopwatch stopwatch = Stopwatch.StartNew();//создаем и запускаем таймер
+            
+            ls.ArrayTest();
 
             //останавливаем счётчик 
             stopwatch.Stop(); //смотрим сколько миллисекунд было затрачено на выполнение 
@@ -44,7 +46,7 @@ namespace lesson_4
 
             stopwatch.Restart(); //перезапускаем счётчик
 
-            HeshSetTest();
+            ls.HeshSetTest();
 
             stopwatch.Stop(); //смотрим сколько миллисекунд было затрачено на выполнение 
             Console.WriteLine($"HeshSet {stopwatch.ElapsedMilliseconds}");
